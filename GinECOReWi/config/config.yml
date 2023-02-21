@@ -1,0 +1,64 @@
+app:
+  name: GinECOReWi
+  version: 0.0.0
+
+server:
+  # debug release test
+  model: release
+  port: 3688
+  cors: true
+  # 接口限流
+  rate:
+    enable: true
+    rate-num: 100
+  db-type: mysql
+  # 是否开启数据库表初始化
+  isInitTable: false
+  excel-dir: ./resource/excel/
+  tls:
+    enable: false
+    key-file: ./resource/default.key
+    cert-file: ./resource/default.pem
+jwt:
+  key: GinECOReWi
+  # 过期时间单位秒 7天
+  expire-time: 604800
+
+redis:
+  host: 175.178.89.162
+  port: 6379
+
+mysql:
+  host: 175.178.89.162:3306
+  username: <your own>
+  password: <your own>
+  db-name: ECOReWi
+  config: charset=utf8&loc=Local&parseTime=true
+
+postgresql:
+  username: postgres
+  password: 123456
+  host: 127.0.0.1
+  port: 5432
+  db-name: ECOReWi
+  max-idle-conns: 10
+  max-open-conns: 10
+
+casbin:
+  model-path: './resource/rbac_model.conf'
+
+gen:
+  # 代码生成读取的数据库名称
+  dbname: ECOReWi
+  # 代码生成是使用前端代码存放位置，需要指定到src文件夹，相对路径
+  frontpath: ../PandaUi/src
+
+log:
+  # 日志等级, trace, debug, info, warn, error, fatal
+  level: info
+#  file:
+#     path: ./
+#     name: panda_log.log
+
+upload:
+  excel_dir: ./resource/excel/
